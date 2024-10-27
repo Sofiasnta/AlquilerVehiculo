@@ -1,26 +1,38 @@
-package co.edu.uniquindio.poo.EmpresaAlquiler;
+package co.edu.uniquindio.poo.model;
 
 public class Cliente {
-    private string nombre;
+    private String nombre;
     private int edad;
-    private string cedula;
+    private String cedula;
 
 
-    public cliente(string nombre,int edad,string cedula){
-        this.nombre=nombre;
-        this.edad=edad;
-        this.cedula=cedula;
-
+    public Cliente(String nombre, int edad, String cedula) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.cedula = cedula;
     }
 
-    public string getnombre(){
+    public String getnombre(){
         return nombre;
     }
 
-    public vois setnombre(string nombre){
+    public void setnombre(String nombre){
         this.nombre=nombre;
     }
 
+    public int getEdad() {
+        return edad;
+    }
 
+    public void setEdad(int edad) {
+        this.edad = edad;
+    }
 
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
 }

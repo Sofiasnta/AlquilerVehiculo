@@ -1,6 +1,6 @@
-package co.edu.uniquindio.poo.EmpresaAlquiler;
+package co.edu.uniquindio.poo.model;
 
-public class Vehiculo {
+public abstract class Vehiculo {
 
     private String placa,marca,modelo;
     private int AñoFabricacion;
@@ -43,6 +43,8 @@ public class Vehiculo {
     public void setAñoFabricacion(int añoFabricacion) {
         this.AñoFabricacion = añoFabricacion;
     }
+
+    public abstract int CalcularCosto(int dias);
 
     
 
