@@ -1,52 +1,62 @@
 package co.edu.uniquindio.poo.model;
 
-public class Moto extends Vehiculo{
+public class Moto extends Vehiculo {
 
-    TipoCaja caja;
-    private int TarifaBase;
+    private int tarifaBase;
+    private TipoTransmision tipoTransmision;
 
-    public enum TipoCaja{
-        Automatica, Manual
+    public Moto (String numeroMatricula, String marca, String modelo, String anioFabricacion, int tarifaBase, TipoTransmision tipoTransmision){
+        super(numeroMatricula, marca, modelo, anioFabricacion);
+        this.tarifaBase = 10000;
+        this.tipoTransmision = tipoTransmision;
     }
 
-    public Moto(String placa, String marca, String modelo, int AñoFabricacion, TipoCaja caja) {
-        super(placa, marca, modelo, AñoFabricacion);
-        this.caja = caja;
-        this.TarifaBase=2000;
-    }
-    public TipoCaja getCaja() {
-    return caja;
+    public int getTarifaBase() {
+        return tarifaBase;
     }
 
-    public void setCaja(TipoCaja caja) {
-        this.caja = caja;
+
+
+    public void setTarifaBase(int tarifaBase) {
+        this.tarifaBase = tarifaBase;
+    }
+    
+
+    public TipoTransmision getTipoTransmision() {
+        return tipoTransmision;
     }
 
-    public int getTarifaBase(){
-        return TarifaBase;
+    public void setTipoTransmision(TipoTransmision tipoTransmision) {
+        this.tipoTransmision = tipoTransmision;
     }
 
-    public void setTarifaBase(int tarifabase){
-        this.TarifaBase=tarifabase;
-    }
 
-    public int CalcularCosto(int dias){
-        getCaja();
-        if(getCaja() == TipoCaja.Automatica){
-            int resultado= 2000+getTarifaBase();
-            return resultado;
-        }else{
-            return getTarifaBase();
-        }
-    }
+    public int calcularCostoReserva(Reserva reserva){
+        int costoReserva = 0;
+        if (getTipoTransmision() == tipoTransmision.MANUAL) {
+             costoReserva = reserva.getDiasAlquiler() * tarifaBase;
+            return costoReserva;
+        } else if (getTipoTransmision() == tipoTransmision.AUTOMATICA) {
+            costoReserva = reserva.getDiasAlquiler() * tarifaBase;
+            int tarifaAdicionarReserva = costoReserva + 2000;
+            return tarifaAdicionarReserva;
+            
+        }  
+        
+        System.out.println("Tipo de transmisión no válido");
+        return 0; // O algún otro valor que indique un error
 
-  @Override
+    }
+        
+    
+
     public String toString() {
-        return "Moto" + super.toString() +" [caja=" + caja + "]";}
+        return "moto" + super.toString() + "[tipoTransmision = " + tipoTransmision + "]";
+    }
+
 
 
 }
-
 
 
 
