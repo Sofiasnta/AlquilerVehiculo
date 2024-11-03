@@ -4,11 +4,13 @@ public class Camioneta extends Vehiculo{
 
     private int CapacidadCarga;
     private int TarifaBase;
+    private double PORCENTAJE_EXTRA;
 
     public Camioneta(String placa, String marca, String modelo, int AñoFabricacion, int capacidadCarga) {
         super(placa, marca, modelo, AñoFabricacion);
         this.CapacidadCarga = capacidadCarga;
         this.TarifaBase=10000;
+        this.PORCENTAJE_EXTRA=0.05;
     }
 
     public int getCapacidadCarga() {
@@ -27,7 +29,9 @@ public class Camioneta extends Vehiculo{
     }
 
     public int CalcularCosto(int dias){
-        return 2;
+        int costo = TarifaBase * dias;
+        costo += (TarifaBase * PORCENTAJE_EXTRA * CapacidadCarga) * dias;
+        return costo;
     }
 
     @Override
