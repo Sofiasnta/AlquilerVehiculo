@@ -6,9 +6,10 @@ public class Reserva{
    private String codigo;
    private Vehiculo vehiculo;
    
-   public Reserva(int diasAlquiler, String codigo){
+   public Reserva(int diasAlquiler, String codigo,Vehiculo vehiculo){
     this.diasAlquiler=diasAlquiler;
     this.codigo=codigo;
+    this.vehiculo=vehiculo;
    }
 
    public int getDiasAlquiler() {
@@ -34,4 +35,7 @@ public class Reserva{
    public void setVehiculo(Vehiculo vehiculo) {
       this.vehiculo = vehiculo;
    }
+   public int calcularCostoTotal() {
+      return vehiculo.CalcularCosto(diasAlquiler);
+  }
 }
